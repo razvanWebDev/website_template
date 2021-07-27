@@ -43,6 +43,22 @@
                 </li>
               </ul>
             </li>
+            <li class="nav-item sidebar-page-header" id="contact-page-header">
+              <a href="#" class="nav-link sidebar-page-title">
+                <p>
+                  Contact
+                  <i class="right fas fa-angle-left"></i>
+                </p>
+              </a>
+              <ul class="nav nav-treeview">
+                <li class="nav-item">
+                  <a href="contact.php" class="nav-link" data-page="contact.php" data-page-header="contact-page-header">
+                    <i class="far fa-circle nav-icon"></i>
+                    <p>View messages</p>
+                  </a>
+                </li>
+              </ul>
+            </li>
             <li class="nav-item sidebar-page-header" id="users-page-header">
               <a href="#" class="nav-link sidebar-page-title">
                 <p>
@@ -61,22 +77,6 @@
                   <a href="users.php?source=add_user" class="nav-link" data-page="users.php?source=add_user" data-page-header="users-page-header">
                     <i class="far fa-circle nav-icon"></i>
                     <p>Create User</p>
-                  </a>
-                </li>
-              </ul>
-            </li>
-            <li class="nav-item sidebar-page-header" id="contact-page-header">
-              <a href="#" class="nav-link sidebar-page-title">
-                <p>
-                  Contact
-                  <i class="right fas fa-angle-left"></i>
-                </p>
-              </a>
-              <ul class="nav nav-treeview">
-                <li class="nav-item">
-                  <a href="contact.php" class="nav-link" data-page="contact.php" data-page-header="contact-page-header">
-                    <i class="far fa-circle nav-icon"></i>
-                    <p>View messages</p>
                   </a>
                 </li>
               </ul>

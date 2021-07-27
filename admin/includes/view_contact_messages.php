@@ -1,16 +1,4 @@
 <!-- DELETE USERS -->
-<?php 
- if(isset($_GET['delete'])) {
-    if(isset($_SESSION['username'])){
-        $the_user_id = mysqli_real_escape_string($connection, $_GET['delete']);
-        deleteFileFromRow("users", "user_image", $the_user_id, "dist/img/users/");
-        //remove from db
-        deleteItem("users", $the_user_id);
-    }
-    header("Location: users.php");
-    exit();
- }
-?>
 <?php $page_title = "Contact form messages"; ?>
 <?php include "includes/page_title.php"; ?>
 
@@ -56,7 +44,7 @@
         $count = mysqli_num_rows($select_post_query_count);
         $count = ceil($count / $articles_per_page); 
 
-        $query = "SELECT * FROM contact LIMIT $page_1, $articles_per_page";
+        $query = "SELECT * FROM contact ORDER BY id DESC LIMIT $page_1, $articles_per_page";
         $select_users = mysqli_query($connection, $query);
 
         while ($row = mysqli_fetch_assoc($select_users)) {

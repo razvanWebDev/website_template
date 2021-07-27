@@ -55,9 +55,9 @@ if(isset($_SESSION["username"])){
           <!-- /.col -->
         </div>
       </form>
-      <p class="mb-1">
+      <!-- <p class="mb-1">
         <a href="forgot-password.php">I forgot my password</a>
-      </p>
+      </p> -->
     </div>
     <!-- /.card-body -->
   </div>

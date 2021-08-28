@@ -72,7 +72,7 @@ window.onload = () => {
         },
         username: {
           required: true,
-          minlength: 4,
+          minlength: 6,
         },
         email: {
           required: true,
@@ -93,7 +93,7 @@ window.onload = () => {
       messages: {
         username: {
           required: "Please provide a username",
-          minlength: "Your username must be at least 4 characters long",
+          minlength: "Your username must be at least 6 characters long",
         },
         email: {
           required: "Please enter a email address",
@@ -132,7 +132,7 @@ window.onload = () => {
         },
         username: {
           required: true,
-          minlength: 4,
+          minlength: 6,
         },
         email: {
           required: true,
@@ -153,7 +153,7 @@ window.onload = () => {
       messages: {
         username: {
           required: "Please provide a username",
-          minlength: "Your username must be at least 4 characters long",
+          minlength: "Your username must be at least 6 characters long",
         },
         email: {
           required: "Please enter a email address",

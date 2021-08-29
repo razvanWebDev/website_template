@@ -1,6 +1,13 @@
 <?php include "PHP/header.php"; ?>
 <?php include "PHP/nav.php"; ?>
 
+<?php
+    $showCaptchaError = "none";
+    if(isset($_GET['error']) == "captcha_failed"){
+        $showCaptchaError = "block";
+    }
+?>
+
 <section id="contact">
     <h2 class="section-title">Contact Us</h2>
     <div class="contact-container">
@@ -18,6 +25,11 @@
             </div>
         </div>
         <form action="PHP/contact.php" method="POST" enctype="multipart/form-data">
+        <p class="error captcha-failed-p" style="display: <?php echo $showCaptchaError ?>">Captcha failed. The form was not sent!</p>
+
+        <!-- input needed for reCaptcha -->
+        <input type="hidden" id="g-recaptcha-response" name="g-recaptcha-response">
+        
             <div class="form-line">
                 <div class="input-container half-width">
                     <label for="name" class="floating-label">First Name</label>
@@ -52,6 +64,14 @@
             <p class="all-fields-required-message">Please fill in all fields</p>
             <button type="submit" name="submit" class="submit-contact">SEND</button>
         </form>
+
+        <script>
+            grecaptcha.ready(function() {
+                grecaptcha.execute("<?php echo $site_key ?>", {action: 'homepage'}).then(function(token) {
+                    document.getElementById("g-recaptcha-response").value = token;
+                });
+            });
+        </script>
     </div>
 </section>
 

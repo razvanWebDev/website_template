@@ -1,10 +1,12 @@
 <?php include "db.php";?>
-<?php include "../admin/includes/functions.php";
-header("Location: ../contact");
-?>
+<?php include "../admin/includes/functions.php";?>
 
 <?php
 if(isset($_POST['submit'])) {
+
+ 
+  $captcha = getCaptcha($_POST['g-recaptcha-response']);
+  if($captcha->success == true && $captcha->score > 0.5){
     $email_to = "razvan.crisan@ctotech.io, crsn_razvan@yahoo.com";
     $email_subject = "New message from Your website!";
 
@@ -45,7 +47,12 @@ if(isset($_POST['submit'])) {
     die("DB query failed" . mysqli_error());
     }
 
-  mysqli_close($connection);
+    header("Location: ../contact");
+
+  }else{
+    header("Location: ../contact?error=captcha_failed");
+  }
+  mysqli_close($connection);   
 }
 
 die();

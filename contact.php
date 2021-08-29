@@ -65,12 +65,21 @@
             <button type="submit" name="submit" class="submit-contact">SEND</button>
         </form>
 
+        <!-- Get captcha token -->
         <script>
-            grecaptcha.ready(function() {
-                grecaptcha.execute("<?php echo $site_key ?>", {action: 'homepage'}).then(function(token) {
-                    document.getElementById("g-recaptcha-response").value = token;
+            function getReCaptcha() {
+                    grecaptcha.ready(function() {
+                    grecaptcha.execute("<?php echo $site_key ?>", {action: 'homepage'}).then(function(token) {
+                        document.getElementById("g-recaptcha-response").value = token;
+                    });
                 });
-            });
+
+            }       
+            getReCaptcha();
+            //Refesh token Every 110 Seconds
+            setInterval(function(){
+                getReCaptcha();
+            }, 110*1000)
         </script>
     </div>
 </section>

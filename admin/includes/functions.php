@@ -86,8 +86,8 @@ function getYTVideoId($videoLink){
   return $ytcode;
 }
 
-function getCaptcha($g_response){
-  $response = file_get_contents("https://www.google.com/recaptcha/api/siteverify?secret=6LcP9C8cAAAAALWcIr5gGzpBi2EcbtYfEsI5V1gD&response=$g_response");
+function getCaptcha($secret_key, $g_response){
+  $response = file_get_contents("https://www.google.com/recaptcha/api/siteverify?secret=$secret_key&response=$g_response");
   $return = json_decode($response);
   return $return;
 }

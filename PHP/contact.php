@@ -3,9 +3,10 @@
 
 <?php
 if(isset($_POST['submit'])) {
+  //check captcha
+  $captcha = getCaptcha($secret_key, $_POST['g-recaptcha-response']);
 
- 
-  $captcha = getCaptcha($_POST['g-recaptcha-response']);
+  //Captcha passed
   if($captcha->success == true && $captcha->score > 0.5){
     $email_to = "razvan.crisan@ctotech.io, crsn_razvan@yahoo.com";
     $email_subject = "New message from Your website!";
@@ -50,6 +51,7 @@ if(isset($_POST['submit'])) {
     header("Location: ../contact");
 
   }else{
+    //Captcha failed
     header("Location: ../contact?error=captcha_failed");
   }
   mysqli_close($connection);   

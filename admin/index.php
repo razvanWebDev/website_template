@@ -55,9 +55,18 @@ if(isset($_SESSION["username"])){
           <!-- /.col -->
         </div>
       </form>
-      <!-- <p class="mb-1">
+
+      <?php
+        if(isset($_GET["newpwd"])){
+          if($_GET["newpwd"] == "passwordupdated"){
+            echo "<p class='text-success'>Your password hs been reset!</p>";
+          }
+        }
+      ?>
+
+      <p class="mb-1">
         <a href="forgot-password.php">I forgot my password</a>
-      </p> -->
+      </p>
     </div>
     <!-- /.card-body -->
   </div>

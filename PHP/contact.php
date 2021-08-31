@@ -19,7 +19,7 @@ if(isset($_POST['submit'])) {
     $message = escape($_POST['message']);
 
     //Own Email==========================================  
-    $email_message = "<p><b>Message details.</b></p>";
+    $email_message = "<p><b>Message details: </b></p>";
      
     function clean_string($string) {
       $bad = array("content-type","bcc:","to:","cc:","href");
@@ -36,6 +36,9 @@ if(isset($_POST['submit'])) {
     $headers .= "Reply-To: ".$email."\r\n";
     $headers .= "Content-type: text/html\r\n";
     $headers .= 'X-Mailer: PHP/' . phpversion(); 
+
+    mail($email_to, $email_subject, $email_message, $headers);  
+
 
     //DB contact=======================================================
 

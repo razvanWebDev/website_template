@@ -23,7 +23,7 @@
                 <div class="contact-details">
                     <p><img src="img/logos/location.svg" alt="address" class="contact-icon">Address</p>
                     <p><img src="img/logos/phone.svg" alt="phone" class="contact-icon">(+4)0723 12 34 56</p>
-                    <p><a href="invest@carpathiainvestingclub.org"><img src="img/logos/email.svg" alt="email"
+                    <p><a href="mailto: mail@company.com"><img src="img/logos/email.svg" alt="email"
                                 class="contact-icon">contact@company.com</a>
                     </p>
 

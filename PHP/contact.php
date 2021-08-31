@@ -48,11 +48,11 @@ if(isset($_POST['submit'])) {
     die("DB query failed" . mysqli_error());
     }
 
-    header("Location: ../contact");
+    header("Location: ../contact?message=success");
 
   }else{
     //Captcha failed
-    header("Location: ../contact?error=captcha_failed");
+    header("Location: ../contact?message=captcha_failed");
   }
   mysqli_close($connection);   
 }

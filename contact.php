@@ -3,8 +3,14 @@
 
 <?php
     $showCaptchaError = "none";
-    if(isset($_GET['error']) == "captcha_failed"){
-        $showCaptchaError = "block";
+    $messageSent = "none";
+
+    if(isset($_GET['message'])){
+        if($_GET['message'] == "captcha_failed"){
+            $showCaptchaError = "block";
+        }elseif($_GET['message'] == "success"){
+            $messageSent = "block";
+        }
     }
 ?>
 
@@ -25,7 +31,8 @@
             </div>
         </div>
         <form action="PHP/contact.php" method="POST" enctype="multipart/form-data">
-        <p class="error captcha-failed-p" style="display: <?php echo $showCaptchaError ?>">Captcha failed. The form was not sent!</p>
+        <p class="error" style="display: <?php echo $showCaptchaError ?>">Captcha failed. The form was not sent!</p>
+        <p class="success" style="display: <?php echo $messageSent ?>">Message sent!</p>
 
         <!-- input needed for reCaptcha -->
         <input type="hidden" id="g-recaptcha-response" name="g-recaptcha-response">

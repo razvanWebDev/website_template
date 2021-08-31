@@ -15,6 +15,7 @@
   --link-hover-color: rgb(32, 32, 32);
 
   --danger-color: #ec312b;
+  --success-color: #0d9646;
 
   --sides-padding: 8vw;
   --top-bottom-padding: 4em;
@@ -164,6 +165,10 @@ section {
 .error {
   color: var(--danger-color);
 }
+.success {
+  color: var(--success-color);
+}
+
 /* ============preloader===================== */
 .preloader {
   position: fixed;

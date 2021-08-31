@@ -499,7 +499,7 @@ footer a:visited {
   color: var(--white-color);
   background-color: var(--main-color);
   font-size: 1.2em;
-  margin-top: 1em;
+  margin-top: 0.5em;
   width: 100%;
 }
 .captcha-failed-p {
@@ -508,6 +508,9 @@ footer a:visited {
   margin-bottom: 1em;
   font-size: 1.2em;
   font-weight: 500;
+}
+.grecaptcha-badge {
+  visibility: hidden;
 }
 
 /* ========================================== */

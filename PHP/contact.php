@@ -19,23 +19,23 @@ if(isset($_POST['submit'])) {
     $message = escape($_POST['message']);
 
     //Own Email==========================================  
-    $email_message = "Message details.\n\n";
+    $email_message = "<p><b>Message details.</b></p>";
      
     function clean_string($string) {
       $bad = array("content-type","bcc:","to:","cc:","href");
       return str_replace($bad,"",$string);
     }
 
-    $email_message .= "Name: ".clean_string($name)." ".clean_string($lastName)."\n";
-    $email_message .= "Phone: ".clean_string($phone)."\n";
-    $email_message .= "Email: ".clean_string($email)."\n";
-    $email_message .= "Message: ".clean_string($message)."\n\n";
+    $email_message .= "<p>Name: ".clean_string($name)." ".clean_string($lastName) . "</p>";
+    $email_message .= "<p>Phone: ".clean_string($phone)."</p>";
+    $email_message .= "<p>Email: ".clean_string($email)."</p>";
+    $email_message .= "<p>Message: ".clean_string($message)."</p>";
          
     // create email headers
-    $headers = 'From: '.$email."\r\n".
-    'Reply-To: '.$email."\r\n" .
-    'X-Mailer: PHP/' . phpversion();
-    mail($email_to, $email_subject, $email_message, $headers);  
+    $headers = "From: ".$email."\r\n";
+    $headers .= "Reply-To: ".$email."\r\n";
+    $headers .= "Content-type: text/html\r\n";
+    $headers .= 'X-Mailer: PHP/' . phpversion(); 
 
     //DB contact=======================================================
 
@@ -57,5 +57,4 @@ if(isset($_POST['submit'])) {
   mysqli_close($connection);   
 }
 
-die();
 ?>

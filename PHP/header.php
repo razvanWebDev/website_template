@@ -18,3 +18,4 @@
 <div class="preloader">
     <img src="img/logo.png" alt="logo">
 </div>
+<?php include "PHP/to-top-arrow.php"; ?>

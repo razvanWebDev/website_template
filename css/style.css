@@ -250,7 +250,7 @@ header.hideNav {
 }
 
 header .nav-links li {
-  padding: 0 1em;
+  margin: 0 1em;
   color: var(--main-text-color);
   cursor: pointer;
 }
@@ -258,10 +258,13 @@ header .nav-links li a {
   color: var(--main-text-color);
 }
 header .nav-links li:first-child {
-  padding-left: 0;
+  margin-left: 0;
 }
 header .nav-links li:last-child {
-  padding-right: 0;
+  margin-right: 0;
+}
+.current-page {
+  border-bottom: 2px solid var(--main-color);
 }
 
 /* Hamburger */

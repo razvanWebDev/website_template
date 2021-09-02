@@ -20,6 +20,11 @@
   <!-- Default box -->
   <div class="card card-solid">
     <div class="card-body">
+
+    <a href="users.php?source=add_user" class="btn bg-primary mb-4">
+      <i class="fas fa-plus mr-2"></i>New user
+    </a>
+    
       <div class="row">
         <?php
         //pagination

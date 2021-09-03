@@ -62,7 +62,6 @@
             $email = $row['email'];
             $phone = $row['phone'];
             $user_image = ifExists($row['user_image']) ? $row['user_image'] : "user.png";
-        
         ?>
         <div class="col-12 col-sm-6 col-md-4 d-flex align-items-stretch flex-column">
           <div class="card bg-light d-flex flex-fill">
@@ -78,7 +77,9 @@
                   <p class="text-muted text-sm"><i class="fas fa-lg fa-phone mr-1"></i> <?php echo $phone ?></p>
                 </div>
                 <div class="col-5 text-center">
-                  <img src="dist/img/users/<?php echo $user_image; ?>" alt="user-avatar" class="img-circle img-fluid">
+                  <a href="users.php?source=edit_user_photo&id=<?php echo $id ?>" title="Change photo" class="change-photo">
+                    <img src="dist/img/users/<?php echo $user_image; ?>" alt="user-avatar" class="img-circle img-fluid">
+                  </a>
                 </div>
               </div>
             </div>

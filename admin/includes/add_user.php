@@ -59,7 +59,7 @@ if(isset($_POST['add_user'])) {
 
   <!-- Main content -->
   <section class="content">
-    <form id="add-user-form" action="" method="post" enctype="multipart/form-data">
+    <form id="user-form" action="" method="post" enctype="multipart/form-data">
       <div class="row">
         <div class="col-md-6">
           <div class="card card-primary">

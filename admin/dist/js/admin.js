@@ -39,71 +39,9 @@ window.onload = () => {
   // #################################
 
   //FORMS VALIDATION
-  //Add user form validation
+  // User forms validation
   $(function () {
-    $("#add-user-form").validate({
-      rules: {
-        firstname: {
-          required: true,
-        },
-        lastname: {
-          required: true,
-        },
-        username: {
-          required: true,
-          minlength: 6,
-        },
-        email: {
-          required: true,
-          email: true,
-        },
-        phone: {
-          required: true,
-        },
-        user_password: {
-          required: true,
-          minlength: 8,
-        },
-        repeat_user_password: {
-          required: true,
-          equalTo: "#user_password",
-        },
-      },
-      messages: {
-        username: {
-          required: "Please provide a username",
-          minlength: "Your username must be at least 6 characters long",
-        },
-        email: {
-          required: "Please enter a email address",
-          email: "Please enter a vaild email address",
-        },
-        user_password: {
-          required: "Please provide a password",
-          minlength: "Your password must be at least 8 characters long",
-        },
-        repeat_user_password: {
-          required: "Please enter the same a password",
-          equalTo: "Your password must be the same",
-        },
-      },
-      errorElement: "span",
-      errorPlacement: function (error, element) {
-        error.addClass("invalid-feedback");
-        element.closest(".form-group").append(error);
-      },
-      highlight: function (element, errorClass, validClass) {
-        $(element).addClass("is-invalid");
-      },
-      unhighlight: function (element, errorClass, validClass) {
-        $(element).removeClass("is-invalid");
-      },
-    });
-  });
-
-  //edit user form validation
-  $(function () {
-    $("#edit-user-form").validate({
+    $("#user-form").validate({
       rules: {
         firstname: {
           required: true,

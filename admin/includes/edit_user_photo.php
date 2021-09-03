@@ -8,7 +8,7 @@
     $select_by_id = mysqli_query($connection, $query);
 
     while ($row = mysqli_fetch_assoc($select_by_id)) {
-        $user_image = $row['user_image'];
+        $user_image = ifExists($row['user_image']) ? $row['user_image'] : "user.png";
     }
 
     if(isset($_POST['update'])) {

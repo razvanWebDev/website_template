@@ -230,16 +230,29 @@ function deleteFileFromRow($tblName, $clmnName, $selectedId, $path){
   //When you delete an entire row from the db, CALL THIS TO ALSO REMOVE THE FILE
    // Call example: deleteFileFromRow("news", "post_image", $the_post_id, "../img/");
   global $connection;
+
+  //delete actual file
   $query = "SELECT * FROM {$tblName} WHERE id = '{$selectedId}'";
   $result = mysqli_query($connection, $query);
   while ($row = mysqli_fetch_assoc($result)) {
       $fileName = $row[$clmnName]; 
       if(ifExists($fileName)){
         if (file_exists($path.$fileName)) {
-             unlink($path.$fileName);
+              unlink($path.$fileName);
+        }else {
+          echo 'Could not delete '.$filename.', file does not exist';
         }
-
       }    
+  }
+
+  //delete from db
+  $query = "UPDATE {$tblName} SET ";
+  $query .= "{$clmnName} = '' ";
+  $query .= "WHERE id = {$selectedId}";
+  $update_post = mysqli_query($connection, $query);
+
+  if(!$update_post) {
+      die("QUERY FAILED" . mysqli_error($connection));
   }
 }
 
@@ -248,15 +261,27 @@ function deleteFileFromRowDiffID($tblName, $id, $clmnName, $selectedId, $path){
   //When you delete an entire row from the db, CALL THIS TO ALSO REMOVE THE FILE
    // Call example: deleteFileFromRow("news", "post_image", $the_post_id, "../img/");
   global $connection;
+
+  //delete actual file
   $query = "SELECT * FROM {$tblName} WHERE {$id} = {$selectedId}";
   $result = mysqli_query($connection, $query);
   while ($row = mysqli_fetch_assoc($result)) {
       $fileName = $row[$clmnName]; 
       if(ifExists($fileName)){
         if (file_exists($path.$fileName)) {
-             unlink($path.$fileName);
+              unlink($path.$fileName);
         }
       }    
+  }
+
+  //delete from db
+  $query = "UPDATE {$tblName} SET ";
+  $query .= "{$clmnName} = '' ";
+  $query .= "WHERE {$id} = {$selectedId}";
+  $update_post = mysqli_query($connection, $query);
+
+  if(!$update_post) {
+      die("QUERY FAILED" . mysqli_error($connection));
   }
 }
 

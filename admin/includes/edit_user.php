@@ -1,4 +1,11 @@
 <?php 
+// DELETE PHOTO
+ if(isset($_GET['delete'])) {
+    if(isset($_SESSION['username'])){
+        $delete_id = mysqli_real_escape_string($connection, $_GET['delete']);
+        deleteFileFromRow('users', 'user_image', $delete_id, "dist/img/users/");
+    }
+ }
 
 $userNameInputValue = "";
 $invalidUsernameClass = "";
@@ -85,7 +92,7 @@ if(isset($_POST['edit_user'])) {
 
 <!-- Main content -->
 <section class="content">
-  <form id="edit-user-form" action="" method="post" enctype="multipart/form-data">
+  <form id="user-form" action="" method="post" enctype="multipart/form-data">
     <div class="row">
       <form action="" method="post" enctype="multipart/form-data">
         <div class="col-md-6">

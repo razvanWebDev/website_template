@@ -53,7 +53,7 @@
 
     <div class="row">
         <div class="col-12">
-          <a href="users.php?source=edit_user&u_id=<?php echo $user_id ?>" class="btn btn-secondary">Cancel</a>
+          <a href="javascript:history.back(1)" class="btn btn-secondary">Cancel</a>
           <input onclick="return confirm('Update user image?')" type="submit" value="Update image" name="update" class="btn btn-success float-right">
         </div>
       </div>

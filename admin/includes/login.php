@@ -8,6 +8,5 @@ if(isset($_POST['login'])) {
     $password = escape($_POST['password']);
 
     loginUser($username, $password);
-
-
 }
+

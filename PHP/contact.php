@@ -2,13 +2,13 @@
 <?php include "../admin/includes/functions.php";?>
 
 <?php
-if(isset($_POST['submit'])) {
+if($_SERVER["REQUEST_METHOD"] == "POST") {
   //check captcha
   $captcha = getCaptcha($secret_key, $_POST['g-recaptcha-response']);
 
   //Captcha passed
   if($captcha->success == true && $captcha->score > 0.5){
-    $email_to = "razvan.crisan@ctotech.io, crsn_razvan@yahoo.com";
+    $email_to = "crsn_razvan@yahoo.com";
     $email_subject = "New message from Your website!";
 
     //form data 
@@ -17,6 +17,12 @@ if(isset($_POST['submit'])) {
     $phone = escape($_POST['phone']);
     $email = escape($_POST['email']); 
     $message = escape($_POST['message']);
+
+    //Check if required fields are empty
+    if( empty($name) || empty($lastName) || empty($phone) || empty($email) || empty($message)){
+      header("Location: ../contact?message=empty_fields");
+      exit();
+    }
 
     //Own Email==========================================  
     $email_message = "<p><b>Message details: </b></p>";
@@ -58,6 +64,8 @@ if(isset($_POST['submit'])) {
     header("Location: ../contact?message=captcha_failed");
   }
   mysqli_close($connection);   
+}else{
+  header("Location: ../contact?message=error");
 }
 
 ?>

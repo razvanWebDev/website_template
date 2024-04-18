@@ -1,7 +1,8 @@
 <?php 
 function escape($string) {
   global $connection;
-  return mysqli_real_escape_string($connection, trim($string));
+  return htmlspecialchars($string);
+  //return mysqli_real_escape_string($connection, trim($string));
 }
 
 function ifExists($item){

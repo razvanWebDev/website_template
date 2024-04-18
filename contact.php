@@ -2,13 +2,24 @@
 <?php include "PHP/nav.php"; ?>
 
 <?php
-    $showCaptchaError = "none";
+    $showFormError = "none";
+    $formErrorMessage = "";
     $messageSent = "none";
 
     if(isset($_GET['message'])){
+        if($_GET['message'] == "error"){
+            $formErrorMessage = "An error occured. The form was not sent!";
+            $showFormError = "block";
+        }
+        if($_GET['message'] == "empty_fields"){
+            $formErrorMessage = "Please fill in all required fields!";
+            $showFormError = "block";
+        }
         if($_GET['message'] == "captcha_failed"){
-            $showCaptchaError = "block";
-        }elseif($_GET['message'] == "success"){
+            $formErrorMessage = "Captcha failed. The form was not sent!";
+            $showFormError = "block";
+        }
+        elseif($_GET['message'] == "success"){
             $messageSent = "block";
         }
     }
@@ -31,7 +42,7 @@
             </div>
         </div>
         <form action="PHP/contact.php" method="POST" enctype="multipart/form-data">
-        <p class="error" style="display: <?php echo $showCaptchaError ?>">Captcha failed. The form was not sent!</p>
+        <p class="error" style="display: <?php echo $showFormError ?>"><?php $formErrorMessage ?></p>
         <p class="success" style="display: <?php echo $messageSent ?>">Message sent!</p>
 
         <!-- input needed for reCaptcha -->
